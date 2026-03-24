@@ -299,29 +299,43 @@
     <h2 class="section-title">制作物</h2>
     <div class="works-grid">
 
-      <div class="work-card">
-        <div class="work-card-inner">🌐</div>
-        <div class="work-overlay">
-          <p class="work-title">Project Name</p>
-          <p class="work-tech">HTML · CSS · JavaScript</p>
-        </div>
-      </div>
+        <!-- ▼ バナーカード本体（1ゲームにつき1ブロック） -->
+        <!-- ▼ href は専用ページのファイル名に変更 -->
+        <a href="shakeandbetray.html" class="game-banner-card">
 
-      <div class="work-card">
-        <div class="work-card-inner">📱</div>
-        <div class="work-overlay">
-          <p class="work-title">App Name</p>
-          <p class="work-tech">React · Firebase</p>
-        </div>
-      </div>
+            <div class="gbc-image">
+                <!-- 画像あり → srcに画像パスを入れる -->
+                <img src="shakeandbetray-banner.png" alt="Shake&Betray">
 
-      <div class="work-card">
-        <div class="work-card-inner">🎨</div>
-        <div class="work-overlay">
-          <p class="work-title">Design Work</p>
-          <p class="work-tech">Figma · Illustrator</p>
+                <!-- 画像なし時のフォールバック -->
+                <!--<span class="gbc-placeholder">Shake&amp;Betray</span>-->
+            </div>
+
+            <div class="gbc-body">
+                <div>
+                    <!-- ▼ タイトル・ジャンルを変更 -->
+                    <p class="gbc-title">Shake&amp;Betray</p>
+                    <p class="gbc-genre">不穏ADV</p>
+                </div>
+                <span class="gbc-arrow">→</span>
+            </div>
+
+        <!--</a>
+        <div class="work-card">
+            <div class="work-card-inner">📱</div>
+            <div class="work-overlay">
+                <p class="work-title">App Name</p>
+                <p class="work-tech">React · Firebase</p>
+            </div>
         </div>
-      </div>
+
+        <div class="work-card">
+            <div class="work-card-inner">🎨</div>
+            <div class="work-overlay">
+                <p class="work-title">Design Work</p>
+                <p class="work-tech">Figma · Illustrator</p>
+            </div>
+        </div>-->
 
     </div>
   </section>
