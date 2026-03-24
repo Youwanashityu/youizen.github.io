@@ -3,233 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>陽以前 Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --ink: #1a1714;
-      --paper: #f5f0e8;
-      --accent: #c84b2f;
-      --muted: #8a8278;
-      --border: #d4cdc3;
+      --ink: #1a1714; --paper: #f5f0e8; --accent: #c84b2f;
+      --muted: #8a8278; --border: #d4cdc3;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Mono', monospace;
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    /* ── ノイズテクスチャ ── */
+    body { font-family: 'DM Mono', monospace; background: var(--paper); color: var(--ink); line-height: 1.6; min-height: 100vh; }
     body::before {
-      content: '';
-      position: fixed; inset: 0;
+      content: ''; position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none; z-index: 0;
     }
-
-    /* ── ナビ ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 4rem;
-      border-bottom: 1px solid var(--border);
-      background: rgba(245,240,232,0.85);
-      backdrop-filter: blur(10px);
+      padding: 1.2rem 4rem; border-bottom: 1px solid var(--border);
+      background: rgba(245,240,232,0.85); backdrop-filter: blur(10px);
     }
-
-    .nav-logo {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 1.1rem; letter-spacing: 0.1em;
-    }
-
+    .nav-logo { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; letter-spacing: 0.1em; }
     nav ul { list-style: none; display: flex; gap: 2.5rem; }
-    nav a {
-      text-decoration: none; color: var(--muted);
-      font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-      transition: color 0.2s;
-    }
+    nav a { text-decoration: none; color: var(--muted); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
     nav a:hover { color: var(--ink); }
-
-    /* ── セクション共通 ── */
     section { padding: 8rem 4rem; position: relative; z-index: 1; }
-
-    /* ── ヒーロー ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding-top: 6rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-label {
-      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 2rem;
-      opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
-    }
-
-    .hero-title {
-      font-family: 'Shippori Mincho', serif;
-      font-size: clamp(3rem, 8vw, 7rem);
-      line-height: 1.1; font-weight: 700;
-      opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
-    }
-
-    .hero-title em {
-      font-style: normal; color: var(--accent);
-    }
-
-    .hero-sub {
-      margin-top: 2.5rem; max-width: 480px;
-      font-size: 0.9rem; color: var(--muted); line-height: 1.8;
-      opacity: 0; animation: fadeUp 0.7s 0.6s forwards;
-    }
-
-    .hero-cta {
-      margin-top: 3.5rem;
-      opacity: 0; animation: fadeUp 0.7s 0.8s forwards;
-    }
-
-    .btn {
-      display: inline-block; padding: 0.9rem 2.4rem;
-      border: 1.5px solid var(--ink); text-decoration: none;
-      color: var(--ink); font-family: 'DM Mono', monospace;
-      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
-      transition: background 0.25s, color 0.25s;
-    }
+    #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 6rem; border-bottom: 1px solid var(--border); }
+    .hero-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; }
+    .hero-title { font-family: 'Shippori Mincho', serif; font-size: clamp(3rem, 8vw, 7rem); line-height: 1.1; font-weight: 700; opacity: 0; animation: fadeUp 0.7s 0.4s forwards; }
+    .hero-title em { font-style: normal; color: var(--accent); }
+    .hero-sub { margin-top: 2.5rem; max-width: 480px; font-size: 0.9rem; color: var(--muted); line-height: 1.8; opacity: 0; animation: fadeUp 0.7s 0.6s forwards; }
+    .hero-cta { margin-top: 3.5rem; opacity: 0; animation: fadeUp 0.7s 0.8s forwards; }
+    .btn { display: inline-block; padding: 0.9rem 2.4rem; border: 1.5px solid var(--ink); text-decoration: none; color: var(--ink); font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.25s, color 0.25s; }
     .btn:hover { background: var(--ink); color: var(--paper); }
-
-    .btn-accent {
-      background: var(--accent); border-color: var(--accent); color: white;
-      margin-left: 1rem;
-    }
+    .btn-accent { background: var(--accent); border-color: var(--accent); color: white; margin-left: 1rem; }
     .btn-accent:hover { background: #a33a20; border-color: #a33a20; color: white; }
-
-    /* ── About ── */
     #about { border-bottom: 1px solid var(--border); }
-
-    .section-num {
-      font-size: 0.68rem; letter-spacing: 0.2em; color: var(--accent);
-      text-transform: uppercase; margin-bottom: 0.6rem;
-    }
-
-    .section-title {
-      font-family: 'Shippori Mincho', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      margin-bottom: 3rem;
-    }
-
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 2fr; gap: 6rem;
-      align-items: start;
-    }
-
-    .about-photo {
-      aspect-ratio: 3/4;
-      background: var(--border);
-      position: relative; overflow: hidden;
-    }
-
-    .about-photo::after {
-      content: '📷'; position: absolute;
-      inset: 0; display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; opacity: 0.3;
-    }
-
+    .section-num { font-size: 0.68rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.6rem; }
+    .section-title { font-family: 'Shippori Mincho', serif; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 3rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; }
+    .about-photo { aspect-ratio: 3/4; background: var(--border); position: relative; overflow: hidden; }
+    .about-photo::after { content: '📷'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; opacity: 0.3; }
     .about-text p { color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem; font-size: 0.9rem; }
-
-    .skills-list {
-      margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.6rem;
-    }
-
-    .skill-tag {
-      padding: 0.35rem 0.9rem; border: 1px solid var(--border);
-      font-size: 0.75rem; letter-spacing: 0.05em; color: var(--muted);
-    }
-
-    /* ── Works ── */
+    .skills-list { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .skill-tag { padding: 0.35rem 0.9rem; border: 1px solid var(--border); font-size: 0.75rem; letter-spacing: 0.05em; color: var(--muted); }
     #works { border-bottom: 1px solid var(--border); }
-
-    .works-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2px; margin-top: 1rem;
-    }
-
-    .work-card {
-      background: var(--border);
-      aspect-ratio: 4/3; position: relative; overflow: hidden;
-      cursor: pointer;
-    }
-
-    .work-card-inner {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, #e8e0d5 0%, #d4cdc3 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; opacity: 0.4;
-    }
-
-    .work-overlay {
-      position: absolute; inset: 0; background: var(--ink);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 2rem; opacity: 0; transition: opacity 0.3s;
-    }
-
-    .work-card:hover .work-overlay { opacity: 1; }
-
-    .work-title {
-      font-family: 'Shippori Mincho', serif;
-      color: var(--paper); font-size: 1.3rem; margin-bottom: 0.4rem;
-    }
-
-    .work-tech { font-size: 0.72rem; color: var(--accent); letter-spacing: 0.1em; }
-
-    /* ── Contact ── */
+    .works-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2px; margin-top: 1rem; }
+    /* ── ゲームバナーカード ── */
+    .game-banner-card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--border); overflow: hidden; transition: border-color 0.25s; }
+    .game-banner-card:hover { border-color: var(--ink); }
+    .gbc-image { width: 100%; aspect-ratio: 16 / 6; background: #1a1714; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .gbc-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .game-banner-card:hover .gbc-image img { transform: scale(1.03); }
+    .gbc-placeholder { font-family: 'Shippori Mincho', serif; font-size: clamp(1.4rem, 3vw, 2.4rem); letter-spacing: 0.15em; color: rgba(255,255,255,0.18); }
+    .gbc-body { padding: 1.2rem 1.4rem 1.4rem; display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+    .gbc-title { font-family: 'Shippori Mincho', serif; font-size: 1.15rem; }
+    .gbc-genre { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+    .gbc-arrow { font-size: 0.8rem; color: var(--muted); transition: transform 0.2s, color 0.2s; }
+    .game-banner-card:hover .gbc-arrow { transform: translateX(4px); color: var(--ink); }
     #contact { text-align: center; }
-
     .contact-inner { max-width: 560px; margin: 0 auto; }
-
-    .contact-email {
-      font-family: 'Shippori Mincho', serif;
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-      color: var(--ink); text-decoration: none;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 0.2rem;
-      transition: color 0.2s;
-    }
-    .contact-email:hover { color: var(--accent); }
-
     .social-links { margin-top: 3rem; display: flex; justify-content: center; gap: 2.5rem; }
-    .social-links a {
-      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none; transition: color 0.2s;
-    }
+    .social-links a { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .social-links a:hover { color: var(--ink); }
-
-    /* ── フッター ── */
-    footer {
-      padding: 2rem 4rem; border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em;
-      position: relative; z-index: 1;
-    }
-
-    /* ── アニメーション ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── レスポンシブ ── */
+    footer { padding: 2rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; position: relative; z-index: 1; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      nav ul { gap: 1.2rem; }
+      nav { padding: 1rem 1.5rem; } nav ul { gap: 1.2rem; }
       section { padding: 5rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-photo { max-height: 280px; }
@@ -239,9 +81,8 @@
 </head>
 <body>
 
-  <!-- ナビ -->
   <nav>
-    <div class="nav-logo">Your Name</div>
+    <div class="nav-logo">陽以前</div>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#works">Works</a></li>
@@ -249,19 +90,17 @@
     </ul>
   </nav>
 
-  <!-- ヒーロー -->
   <section id="hero">
-    <p class="hero-label">Portfolio — 2025</p>
+    <p class="hero-label">Portfolio — 2026</p>
     <h1 class="hero-title">
       Hello,<br>
       I'm <em>陽以前</em>.
     </h1>
     <p class="hero-sub">
-
-        Planner<br>
-        Tokyo, Japan<br><br>
-        プランナー志望の学生です。
-        企画とプログラミングを学校で学んでいます。
+      Planner<br>
+      Tokyo, Japan<br><br>
+      プランナー志望の学生です。
+      企画とプログラミングを学校で学んでいます。
     </p>
     <div class="hero-cta">
       <a href="#works" class="btn">View Works</a>
@@ -269,95 +108,55 @@
     </div>
   </section>
 
-  <!-- About -->
   <section id="about">
     <p class="section-num">01 — About</p>
     <h2 class="section-title">自己紹介</h2>
     <div class="about-grid">
       <div class="about-photo"></div>
       <div class="about-text">
-        <p>
-         基本的に登場キャラクターが主人公に対してメロメロなゲームを作っています。
-
-
-        </p>
-        <p>
-          現在専門学校に通っています。
-        </p>
+        <p>基本的に登場キャラクターが主人公に対してメロメロなゲームを作っています。</p>
+        <p>現在専門学校に通っています。</p>
         <div class="skills-list">
-            <span class="skill-tag">Unity</span>
-            <span class="skill-tag">CLIP STUDIO PAINT</span>
-
+          <span class="skill-tag">Unity</span>
+          <span class="skill-tag">CLIP STUDIO PAINT</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Works -->
   <section id="works">
     <p class="section-num">02 — Works</p>
     <h2 class="section-title">制作物</h2>
     <div class="works-grid">
 
-        <!-- ▼ バナーカード本体（1ゲームにつき1ブロック） -->
-        <!-- ▼ href は専用ページのファイル名に変更 -->
-        <a href="shakeandbetray.html" class="game-banner-card">
-
-            <div class="gbc-image">
-                <!-- 画像あり → srcに画像パスを入れる -->
-                <img src="shakeandbetray-banner.png" alt="Shake&Betray">
-
-                <!-- 画像なし時のフォールバック -->
-                <!--<span class="gbc-placeholder">Shake&amp;Betray</span>-->
-            </div>
-
-            <div class="gbc-body">
-                <div>
-                    <!-- ▼ タイトル・ジャンルを変更 -->
-                    <p class="gbc-title">Shake&amp;Betray</p>
-                    <p class="gbc-genre">不穏ADV</p>
-                </div>
-                <span class="gbc-arrow">→</span>
-            </div>
-
-        <!--</a>
-        <div class="work-card">
-            <div class="work-card-inner">📱</div>
-            <div class="work-overlay">
-                <p class="work-title">App Name</p>
-                <p class="work-tech">React · Firebase</p>
-            </div>
+      <a href="shakeandbetray.html" class="game-banner-card">
+        <div class="gbc-image">
+          <img src="shakeandbetray-banner.png" alt="Shake&amp;Betray">
         </div>
-
-        <div class="work-card">
-            <div class="work-card-inner">🎨</div>
-            <div class="work-overlay">
-                <p class="work-title">Design Work</p>
-                <p class="work-tech">Figma · Illustrator</p>
-            </div>
-        </div>-->
+        <div class="gbc-body">
+          <div>
+            <p class="gbc-title">Shake&amp;Betray</p>
+            <p class="gbc-genre">不穏ADV</p>
+          </div>
+          <span class="gbc-arrow">→</span>
+        </div>
+      </a>
 
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <div class="contact-inner">
       <p class="section-num">03 — Contact</p>
       <h2 class="section-title">お問い合わせ</h2>
-      <p style="color:var(--muted);font-size:0.88rem;margin-bottom:2.5rem;line-height:1.8;">
-        
-      </p>
       <div class="social-links">
-          <a href="https://github.com/Youwanashityu" target="_blank">GitHub</a>
-          <a href="https://unityroom.com/users/youwanashityu" target="_blank">unityroom</a>
-          <a href="https://x.com/hukkatu_pear" target="_blank">Twitter / X</a>
-
+        <a href="https://github.com/Youwanashityu" target="_blank">GitHub</a>
+        <a href="https://unityroom.com/users/youwanashityu" target="_blank">unityroom</a>
+        <a href="https://x.com/hukkatu_pear" target="_blank">Twitter / X</a>
       </div>
     </div>
   </section>
 
-  <!-- フッター -->
   <footer>
     <span>© 2026 陽以前</span>
     <span>Built with HTML · Hosted on GitHub Pages</span>
