@@ -1,0 +1,121 @@
+<!--
+  ========================================
+  ゲームバナー — index.html の Works セクションに貼り付ける
+  ゲームを追加するたびにこのブロックをコピーして使う
+  ========================================
+-->
+
+<!-- ▼ CSS（<style>タグ内か外部CSSに追加） -->
+<style>
+  .game-banner-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.25s;
+    position: relative;
+  }
+  .game-banner-card:hover { border-color: var(--ink); }
+
+  /* バナー画像エリア */
+  .gbc-image {
+    width: 100%;
+    aspect-ratio: 16 / 6;       /* ← 縦横比 */
+    background: #1a1714;        /* ← 背景色（画像なし時） */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .gbc-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .game-banner-card:hover .gbc-image img { transform: scale(1.03); }
+
+  /* 画像なし時のタイトル表示 */
+  .gbc-placeholder {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.18);
+    user-select: none;
+  }
+
+  /* テキストエリア */
+  .gbc-body {
+    padding: 1.2rem 1.4rem 1.4rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .gbc-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.15rem;
+  }
+
+  .gbc-genre {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .gbc-arrow {
+    font-size: 0.8rem;
+    color: var(--muted);
+    transition: transform 0.2s, color 0.2s;
+  }
+  .game-banner-card:hover .gbc-arrow {
+    transform: translateX(4px);
+    color: var(--ink);
+  }
+</style>
+
+<!-- ▼ バナーカード本体（1ゲームにつき1ブロック） -->
+<!-- ▼ href は専用ページのファイル名に変更 -->
+<a href="shakeandbetray.html" class="game-banner-card">
+
+  <div class="gbc-image">
+    <!-- 画像あり → srcに画像パスを入れる -->
+      <img src="shakeandbetray-banner.png" alt="Shake&Betray">
+
+    <!-- 画像なし時のフォールバック -->
+    <!--<span class="gbc-placeholder">Shake&amp;Betray</span>-->
+  </div>
+
+  <div class="gbc-body">
+    <div>
+      <!-- ▼ タイトル・ジャンルを変更 -->
+      <p class="gbc-title">Shake&amp;Betray</p>
+      <p class="gbc-genre">不穏ADV</p>
+    </div>
+    <span class="gbc-arrow">→</span>
+  </div>
+
+</a>
+
+<!--
+  ========================================
+  使い方メモ
+  ========================================
+  ゲームを追加するとき：
+  1. このブロック全体をコピー
+  2. href → 新しいゲームの .html ファイル名に変更
+  3. gbc-placeholder・gbc-title・gbc-genre を変更
+  4. 画像があれば <img> のコメントを外してsrcを設定
+
+  専用ページのテンプレート → game-template.html を複製して使う
+  ファイル命名例：
+    shakeandbetray.html
+    mygame2.html
+    mygame3.html
+  ========================================
+-->
