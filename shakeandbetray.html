@@ -58,12 +58,25 @@
     .nav-back::before { content: '← '; }
 
     /* ── メインレイアウト ── */
-    main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 8rem 2rem 6rem;
-      position: relative; z-index: 1;
-    }
+      main {
+          max-width: 960px;
+          margin: 0 auto;
+          padding: 8rem 4rem 6rem;
+          position: relative;
+          z-index: 1;
+      }
+      .game-banner {
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      .btn-play, .btn-back {
+          display: inline-block;
+      }
+
+      .game-info-grid {
+          justify-items: center;
+      }
 
     /* ── バナー ── */
     /* ============================================
@@ -192,6 +205,9 @@
       nav { padding: 1rem 1.5rem; }
       main { padding: 6rem 1.2rem 4rem; }
     }
+
+      
+
   </style>
 </head>
 <body>
